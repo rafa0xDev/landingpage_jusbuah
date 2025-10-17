@@ -1,14 +1,15 @@
 /* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
 
-/* --- Variabel Warna --- */
+/* --- Variabel Warna & Font --- */
 :root {
-    --color-primary: #388e3c; /* Hijau Segar */
-    --color-secondary: #ff9800; /* Oranye/Jus */
-    --color-text-dark: #212121;
-    --color-text-light: #424242;
-    --color-background-light: #f7f7f7;
+    --color-primary: #388e3c; /* Hijau Segar - Dominan */
+    --color-secondary: #ff9800; /* Oranye/Jus - Aksen */
+    --color-text-dark: #1a1a1a; /* Sangat gelap untuk kontras tinggi */
+    --color-text-light: #444444;
+    --color-background-light: #f9f9f9;
     --color-white: #ffffff;
+    --transition-speed: 0.3s;
 }
 
 /* --- Reset dan Global Styling --- */
@@ -23,13 +24,19 @@ body {
     background-color: var(--color-white); 
     color: var(--color-text-light);
     line-height: 1.6;
+    padding-top: 70px; /* Kompensasi untuk fixed header */
 }
 
 /* Container untuk membatasi lebar konten */
 main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px;
+}
+
+/* Padding untuk semua section baru */
+.section-padding {
+    padding: 80px 0;
 }
 
 h1, h2, h3 {
@@ -37,14 +44,71 @@ h1, h2, h3 {
     font-weight: 700;
 }
 
+h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--color-primary);
+}
+
 a {
     text-decoration: none;
-    color: var(--color-text-light);
-    transition: color 0.3s ease;
+    color: var(--color-text-dark);
+    transition: color var(--transition-speed) ease;
 }
 
 a:hover {
     color: var(--color-primary);
+}
+
+/* --- Button Styling --- */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px; 
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all var(--transition-speed) ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Button "Hubungi Kami" */
+.contact-btn button {
+    background-color: var(--color-secondary); 
+    color: var(--color-white);
+}
+
+.contact-btn button:hover {
+    background-color: #e68a00;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(255, 152, 0, 0.5);
+}
+
+/* Button "Pesan Sekarang" di Hero */
+.btn-order-hero button {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 14px 30px;
+    font-size: 18px;
+}
+
+.btn-order-hero button:hover {
+    background-color: #2e7d32;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(56, 142, 60, 0.6);
+}
+
+/* Button 'Pesan' di Product Card */
+.buy-btn {
+    background-color: #e8e8e8;
+    color: var(--color-text-dark);
+    font-size: 14px;
+    padding: 8px 15px;
+}
+.buy-btn:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
 }
 
 /* --- Header dan Navigasi --- */
@@ -54,7 +118,7 @@ header {
     left: 0;
     width: 100%;
     background-color: var(--color-white); 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
 
@@ -68,57 +132,25 @@ nav {
 }
 
 .logo img {
-    height: 50px; /* Atur tinggi logo */
+    height: 50px; 
     width: auto;
-    border-radius: 5px; /* Opsional: memberikan sedikit bentuk */
+    object-fit: contain;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 30px;
 }
 
 .nav-links a {
     font-weight: 600;
+    padding: 5px 0;
 }
 
-/* --- Button Styling --- */
-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 50px; /* Rounded pill shape */
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Button "Contact Us" */
-.contact-btn button {
-    background-color: var(--color-secondary); 
-    color: var(--color-white);
-}
-
-.contact-btn button:hover {
-    background-color: #e68a00;
-    box-shadow: 0 6px 10px rgba(255, 152, 0, 0.4);
-    transform: translateY(-2px);
-}
-
-/* Button "Shop Now" di Hero Section */
-.btn-order-hero button {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    padding: 14px 30px;
-    font-size: 18px;
-}
-
-.btn-order-hero button:hover {
-    background-color: #2e7d32;
-    box-shadow: 0 6px 10px rgba(56, 142, 60, 0.4);
-    transform: translateY(-2px);
+/* Hidden Hamburger on Desktop */
+.hamburger-menu {
+    display: none; 
 }
 
 
@@ -127,14 +159,13 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 40px;
-    padding-top: 100px; /* Jarak dari fixed header */
-    padding-bottom: 80px;
-    min-height: 80vh; /* Agar hero mengisi sebagian besar viewport */
+    gap: 60px;
+    padding-top: 50px; 
+    padding-bottom: 50px;
 }
 
 .hero-content {
-    flex: 1.2; /* Berikan lebih banyak ruang untuk konten teks */
+    flex: 1.2; 
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -145,44 +176,31 @@ button {
 }
 
 .hero-text h1 {
-    font-size: 56px;
+    font-size: 52px;
     line-height: 1.1;
-    margin-bottom: 20px;
     color: var(--color-primary);
-}
-
-.hero-text p {
-    font-size: 18px;
-    color: var(--color-text-light);
 }
 
 .hero-image img {
     width: 100%;
     height: auto;
-    border-radius: 20px;
-    /* Efek visual yang lebih kuat */
-    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.1); 
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); 
     object-fit: cover;
 }
-
 
 /* --- Statistik Section --- */
 .statistic-section {
     display: flex;
     gap: 40px;
-    margin-top: 50px;
-    padding: 20px 0;
+    margin-top: 30px;
+    border-top: 1px solid var(--color-background-light);
+    padding-top: 30px;
 }
 
 .statistic-section > span {
     flex: 1;
     text-align: center;
-    /* Tambahkan border ringan untuk memisahkan */
-    border-right: 1px solid #eeeeee; 
-}
-
-.statistic-section > span:last-child {
-    border-right: none;
 }
 
 .statistic-section h1 {
@@ -193,12 +211,50 @@ button {
 
 .statistic-section p {
     font-size: 14px;
-    color: var(--color-text-light);
-    margin-top: 5px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
+/* --- Product Grid Section --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: var(--color-background-light);
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform var(--transition-speed) ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.product-card p {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
 
 /* --- Footer --- */
 footer {
@@ -207,80 +263,90 @@ footer {
     color: var(--color-background-light);
     text-align: center;
     font-size: 14px;
-    margin-top: 80px;
+    margin-top: 50px;
 }
 
 /* --- Responsiveness (Media Queries) --- */
 
 @media (max-width: 992px) {
     .hero-text h1 {
-        font-size: 44px;
-    }
-    .statistic-section {
-        gap: 20px;
-    }
-    .statistic-section h1 {
-        font-size: 32px;
+        font-size: 40px;
     }
 }
 
 @media (max-width: 768px) {
-    /* Tata letak Navigasi menumpuk di mobile */
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-        padding-bottom: 15px;
+    /* Navbar Mobile (Hamburger) */
+    .hamburger-menu {
+        display: block; /* Tampilkan tombol hamburger */
+        background: transparent;
+        color: var(--color-text-dark);
+        font-size: 24px;
+        padding: 5px 10px;
+        border: none;
+        order: 2;
     }
 
     .nav-links {
-        flex-wrap: wrap;
-        margin-top: 10px;
-        gap: 15px;
+        /* Sembunyikan dan ubah tata letak default */
+        display: none; 
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        position: absolute;
+        top: 70px; /* Di bawah header */
+        left: 0;
+        background-color: var(--color-white);
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+        padding: 20px;
+        align-items: flex-start;
+        transition: all var(--transition-speed) ease-in-out;
     }
 
+    .nav-links.active {
+        display: flex; /* Tampilkan saat class 'active' ada */
+    }
+    
+    .nav-links a {
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
     .contact-btn {
-        margin-top: 10px;
+        width: 100%;
+    }
+    .contact-btn button {
+        width: 100%;
     }
 
-    /* Tata letak Hero menumpuk */
+    /* Hero Section Mobile */
     .hero-section {
         flex-direction: column;
-        padding-top: 120px; /* Sesuaikan padding untuk nav yang lebih tinggi */
         text-align: center;
+        padding-top: 30px; 
     }
 
     .hero-image {
-        order: -1; /* Gambar di atas teks */
+        order: -1; 
         margin-bottom: 30px;
     }
 
     .hero-text h1 {
-        font-size: 36px;
+        font-size: 32px;
     }
 
-    /* Statistik menumpuk di mobile */
     .statistic-section {
         flex-direction: column;
-        gap: 25px;
+        gap: 20px;
+        border-top: none;
+        padding-top: 0;
+    }
+    
+    /* Section Padding Mobile */
+    .section-padding {
+        padding: 50px 0;
     }
 
-    .statistic-section > span {
-        border-right: none;
-        border-bottom: 1px solid #eeeeee;
-        padding-bottom: 15px;
-    }
-
-    .statistic-section > span:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-image img {
-        border-radius: 10px;
-    }
-    .hero-text h1 {
-        font-size: 30px;
+    h2 {
+        font-size: 28px;
     }
 }

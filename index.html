@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jus Buah Segar - Jus buah alami kualitas terbaik, dibuat dari buah-buahan pilihan untuk kesegaran harian Anda.">
+    <meta name="keywords" content="jus buah, jus segar, minuman sehat, jus alami, toko jus">
+    <meta name="author" content="Jus Buah Segar Company">
+    
     <link rel="stylesheet" href="style/style.css"> 
-    <title>Jus Buah Segar | World's Best Quality Juice</title>
+    <title>Jus Buah Segar | Kualitas Terbaik & Paling Segar</title>
 </head>
 <body>
     <header>
@@ -12,26 +16,29 @@
             <div class="logo">
                 <img src="asets/65e318f5-de01-4bee-a449-eb2796490081.jpeg" alt="Logo Jus Buah Segar">
             </div>
-            <div class="nav-links">
-                <a href="#">Home</a>
-                <a href="#">Offers</a>
-                <a href="#">About Us</a>
-                <a href="#">Shop</a>
+            
+            <button class="hamburger-menu" aria-label="Toggle Navigation">☰</button>
 
-                <a href="#" class="contact-btn"><button>Contact Us</button></a>
+            <div class="nav-links">
+                <a href="#home">Beranda</a>
+                <a href="#offers">Penawaran</a>
+                <a href="#about-us">Tentang Kami</a>
+                <a href="#shop">Produk</a>
+
+                <a href="#contact" class="contact-btn"><button>Hubungi Kami</button></a>
             </div>
         </nav>
     </header>
     <main>
-        <article class="hero-section">
+        <article class="hero-section" id="home">
             <div class="hero-content">
                 <span class="hero-text">
-                    <h1>World's Best Quality Juice.</h1>
-                    <p>Freshly squeezed juices made from the finest fruits to quench your thirst and invigorate your senses.</p>
+                    <h1>Jus Buah Kualitas Terbaik di Dunia.</h1>
+                    <p>Jus yang diperas segar dari buah-buahan terbaik untuk menghilangkan dahaga dan menyegarkan indra Anda.</p>
                 </span>
                 
                 <span class="btn-order-hero">
-                    <a href="#"><button>Shop Now</button></a>
+                    <a href="#shop"><button>Pesan Sekarang</button></a>
                 </span>
 
                 <span class="statistic-section">
@@ -53,9 +60,62 @@
                 <img src="asets/smoothies.jpeg" alt="Gelas jus atau smoothies segar">
             </div>
         </article>
-        </main>
+        
+        <section id="offers" class="section-padding">
+            <h2>Penawaran Spesial Minggu Ini</h2>
+            <p>Dapatkan diskon untuk paket jus detoks kami!</p>
+            </section>
+
+        <section id="shop" class="section-padding">
+            <h2>Produk Jus Unggulan Kami</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="asets/jus-jeruk.jpeg" alt="Jus Jeruk Segar">
+                    <h3>Jus Jeruk Murni</h3>
+                    <p>Diperas dari 100% jeruk Navel pilihan. Kaya Vitamin C.</p>
+                    <button class="buy-btn">Pesan Rp 25.000</button>
+                </div>
+                <div class="product-card">
+                    <img src="asets/jus-apel.jpeg" alt="Jus Apel Hijau">
+                    <h3>Jus Apel Hijau</h3>
+                    <p>Kesegaran apel Granny Smith yang sedikit asam dan menyegarkan.</p>
+                    <button class="buy-btn">Pesan Rp 30.000</button>
+                </div>
+                </div>
+        </section>
+
+        <section id="about-us" class="section-padding">
+            <h2>Filosofi Kami</h2>
+            <p>Kami berkomitmen hanya menyajikan jus terbaik, tanpa tambahan gula buatan atau pengawet. Kesehatan Anda adalah prioritas kami.</p>
+            </section>
+        
+        <section id="contact" class="section-padding">
+             <h2>Hubungi Kami</h2>
+             <p>Punya pertanyaan? Hubungi tim layanan pelanggan kami 24/7!</p>
+             </section>
+
+
+    </main>
     <footer>
-        <p>&copy; 2025 Jus Buah Segar. All rights reserved.</p>
-        </footer>
+        <p>&copy; 2025 Jus Buah Segar. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Tutup menu saat link diklik (diperlukan untuk navigasi mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
