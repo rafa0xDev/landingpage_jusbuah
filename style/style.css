@@ -1,18 +1,21 @@
 /* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
 
-/* --- Variabel Warna & Font --- */
+/* ======================================================= */
+/* --- 1. VARIABEL DAN RESET DASAR --- */
+/* ======================================================= */
 :root {
+    /* Skema Warna Segar */
     --color-primary: #388e3c; /* Hijau Segar - Dominan */
     --color-secondary: #ff9800; /* Oranye/Jus - Aksen */
-    --color-text-dark: #1a1a1a; /* Sangat gelap untuk kontras tinggi */
+    --color-text-dark: #1a1a1a; 
     --color-text-light: #444444;
     --color-background-light: #f9f9f9;
     --color-white: #ffffff;
-    --transition-speed: 0.3s;
+    --transition-speed: 0.3s; /* Kecepatan Transisi untuk Hover */
 }
 
-/* --- Reset dan Global Styling --- */
+/* Reset Browser Default */
 * {
     margin: 0;
     padding: 0;
@@ -24,40 +27,11 @@ body {
     background-color: var(--color-white); 
     color: var(--color-text-light);
     line-height: 1.6;
-    padding-top: 70px; /* Kompensasi untuk fixed header */
+    /* Memberi ruang di atas untuk fixed header */
+    padding-top: 70px; 
 }
 
-/* Container untuk membatasi lebar konten */
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Padding untuk semua section baru */
-.section-padding {
-    padding: 80px 0;
-}
-
-.section-padding p{
-    font-size: 16px;
-    color: var(--color-text-light);
-    margin-top: 15px;
-    text-align: center;
-}
-
-h1, h2, h3 {
-    color: var(--color-text-dark);
-    font-weight: 700;
-}
-
-h2 {
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 50px;
-    color: var(--color-primary);
-}
-
+/* Link Styling Global */
 a {
     text-decoration: none;
     color: var(--color-text-dark);
@@ -68,7 +42,86 @@ a:hover {
     color: var(--color-primary);
 }
 
-/* --- Button Styling --- */
+/* Container utama untuk membatasi lebar konten */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Styling untuk semua Judul */
+h1, h2, h3 {
+    color: var(--color-text-dark);
+    font-weight: 700;
+}
+
+/* Styling untuk Section Padding dan sub-teks */
+.section-padding {
+    padding: 80px 0;
+}
+
+.section-padding p {
+    font-size: 16px;
+    color: var(--color-text-light);
+    margin-top: 15px;
+    text-align: center;
+    /* Batasi lebar paragraf deskripsi agar mudah dibaca */
+    max-width: 700px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--color-primary);
+}
+
+
+/* ======================================================= */
+/* --- 2. HEADER DAN NAVIGASI --- */
+/* ======================================================= */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-white); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+.logo img {
+    height: 50px; 
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-weight: 600;
+    padding: 5px 0;
+}
+
+
+/* ======================================================= */
+/* --- 3. STYLING TOMBOL (BUTTONS) --- */
+/* ======================================================= */
 button {
     padding: 10px 20px;
     border: none;
@@ -80,7 +133,7 @@ button {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Button "Hubungi Kami" */
+/* Button "Hubungi Kami" di Navigasi */
 .contact-btn button {
     background-color: var(--color-secondary); 
     color: var(--color-white);
@@ -118,48 +171,10 @@ button {
     color: var(--color-white);
 }
 
-/* --- Header dan Navigasi --- */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--color-white); 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-}
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 10px 20px;
-}
-
-.logo img {
-    height: 50px; 
-    width: auto;
-    object-fit: contain;
-}
-
-.nav-links {
-    /* DEFAULT: Selalu tampil sejajar (desktop) */
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.nav-links a {
-    font-weight: 600;
-    padding: 5px 0;
-}
-
-/* Tombol hamburger yang dihapus sebelumnya tidak ada di sini */
-
-
-/* --- Hero Section --- */
+/* ======================================================= */
+/* --- 4. HERO SECTION --- */
+/* ======================================================= */
 .hero-section {
     display: flex;
     justify-content: space-between;
@@ -194,6 +209,7 @@ nav {
     object-fit: cover;
 }
 
+
 /* --- Statistik Section --- */
 .statistic-section {
     display: flex;
@@ -220,33 +236,44 @@ nav {
     letter-spacing: 0.5px;
 }
 
-/* --- Product Grid Section --- */
+
+/* ======================================================= */
+/* --- 5. PRODUCT GRID (KARTU PRODUK) --- */
+/* ======================================================= */
 .product-grid {
+    /* Membuat grid responsif, minimal 280px per kolom */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
 .product-card {
-    background-color: var(--color-background-light);
+    background-color: var(--color-white);
     border-radius: 15px;
     overflow: hidden;
     text-align: center;
     padding-bottom: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
     transition: transform var(--transition-speed) ease;
+    border: 1px solid #eee; 
 }
 
 .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
 .product-card img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    /* Menentukan tinggi tetap untuk konsistensi kartu */
+    height: 250px; 
+    
+    /* Memastikan gambar mengisi area tanpa terdistorsi */
+    object-fit: cover; 
+    
+    background-color: var(--color-background-light); 
     margin-bottom: 15px;
+    border-radius: 0; 
 }
 
 .product-card h3 {
@@ -261,7 +288,10 @@ nav {
     padding: 0 15px;
 }
 
-/* --- Footer --- */
+
+/* ======================================================= */
+/* --- 6. FOOTER --- */
+/* ======================================================= */
 footer {
     padding: 25px 20px;
     background-color: var(--color-text-dark); 
@@ -271,18 +301,25 @@ footer {
     margin-top: 50px;
 }
 
-/* --- Responsiveness (Media Queries) --- */
 
+/* ======================================================= */
+/* --- 7. RESPONSIVITAS (MEDIA QUERIES) --- */
+/* ======================================================= */
+
+/* Untuk layar menengah (tablet landscape, dll.) */
 @media (max-width: 992px) {
     .hero-text h1 {
         font-size: 40px;
     }
 }
 
+/* Untuk layar kecil (smartphone & tablet portrait) */
 @media (max-width: 768px) {
-    /* Navbar Mobile: Menumpuk Vertikal Sederhana */
+    
+    /* NAVIGASI MOBILE (Tanpa Hamburger) */
     nav {
-        flex-direction: column; /* Paksakan logo dan nav-links menumpuk */
+        /* Paksakan logo dan nav-links menumpuk */
+        flex-direction: column; 
         align-items: flex-start;
         padding-bottom: 15px;
     }
@@ -308,14 +345,15 @@ footer {
     }
 
     .contact-btn button {
-        width: 100%; /* Tombol Hubungi Kami juga dibuat full-width */
+        width: 100%; /* Tombol Hubungi Kami full-width */
     }
 
     body {
-        padding-top: 160px; /* Sesuaikan padding body karena header sekarang lebih tinggi */
+        /* Kompensasi padding karena header lebih tinggi */
+        padding-top: 160px; 
     }
     
-    /* Hero Section Mobile */
+    /* HERO SECTION MOBILE */
     .hero-section {
         flex-direction: column;
         text-align: center;
@@ -323,6 +361,7 @@ footer {
     }
 
     .hero-image {
+        /* Pindahkan gambar ke atas teks */
         order: -1; 
         margin-bottom: 30px;
     }
@@ -331,14 +370,16 @@ footer {
         font-size: 32px;
     }
 
+    /* STATISTIK MOBILE */
     .statistic-section {
+        /* Statistik menumpuk vertikal */
         flex-direction: column;
         gap: 20px;
         border-top: none;
         padding-top: 0;
     }
     
-    /* Section Padding Mobile */
+    /* SECTION MOBILE */
     .section-padding {
         padding: 50px 0;
     }
