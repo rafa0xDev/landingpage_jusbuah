@@ -17,8 +17,6 @@
                 <img src="asets/65e318f5-de01-4bee-a449-eb2796490081.jpeg" alt="Logo Jus Buah Segar">
             </div>
             
-            <button class="hamburger-menu" aria-label="Toggle Navigation">☰</button>
-
             <div class="nav-links">
                 <a href="#home">Beranda</a>
                 <a href="#offers">Penawaran</a>
@@ -64,7 +62,7 @@
         <section id="offers" class="section-padding">
             <h2>Penawaran Spesial Minggu Ini</h2>
             <p>Dapatkan diskon untuk paket jus detoks kami!</p>
-            </section>
+        </section>
 
         <section id="shop" class="section-padding">
             <h2>Produk Jus Unggulan Kami</h2>
@@ -81,18 +79,18 @@
                     <p>Kesegaran apel Granny Smith yang sedikit asam dan menyegarkan.</p>
                     <button class="buy-btn">Pesan Rp 30.000</button>
                 </div>
-                </div>
+            </div>
         </section>
 
         <section id="about-us" class="section-padding">
             <h2>Filosofi Kami</h2>
             <p>Kami berkomitmen hanya menyajikan jus terbaik, tanpa tambahan gula buatan atau pengawet. Kesehatan Anda adalah prioritas kami.</p>
-            </section>
+        </section>
         
         <section id="contact" class="section-padding">
              <h2>Hubungi Kami</h2>
              <p>Punya pertanyaan? Hubungi tim layanan pelanggan kami 24/7!</p>
-             </section>
+        </section>
 
 
     </main>
@@ -100,22 +98,5 @@
         <p>&copy; 2025 Jus Buah Segar. Hak Cipta Dilindungi.</p>
     </footer>
 
-    <script>
-        const hamburger = document.querySelector('.hamburger-menu');
-        const navLinks = document.querySelector('.nav-links');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Tutup menu saat link diklik (diperlukan untuk navigasi mobile)
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                }
-            });
-        });
-    </script>
-</body>
+    </body>
 </html>

@@ -138,6 +138,7 @@ nav {
 }
 
 .nav-links {
+    /* DEFAULT: Selalu tampil sejajar (desktop) */
     display: flex;
     align-items: center;
     gap: 30px;
@@ -148,10 +149,7 @@ nav {
     padding: 5px 0;
 }
 
-/* Hidden Hamburger on Desktop */
-.hamburger-menu {
-    display: none; 
-}
+/* Tombol hamburger yang dihapus sebelumnya tidak ada di sini */
 
 
 /* --- Hero Section --- */
@@ -275,49 +273,41 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* Navbar Mobile (Hamburger) */
-    .hamburger-menu {
-        display: block; /* Tampilkan tombol hamburger */
-        background: transparent;
-        color: var(--color-text-dark);
-        font-size: 24px;
-        padding: 5px 10px;
-        border: none;
-        order: 2;
+    /* Navbar Mobile: Menumpuk Vertikal Sederhana */
+    nav {
+        flex-direction: column; /* Paksakan logo dan nav-links menumpuk */
+        align-items: flex-start;
+        padding-bottom: 15px;
     }
 
     .nav-links {
-        /* Sembunyikan dan ubah tata letak default */
-        display: none; 
+        /* Paksakan link-link menumpuk secara vertikal */
         flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        position: absolute;
-        top: 70px; /* Di bawah header */
-        left: 0;
-        background-color: var(--color-white);
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
-        padding: 20px;
         align-items: flex-start;
-        transition: all var(--transition-speed) ease-in-out;
+        width: 100%;
+        gap: 10px;
+        margin-top: 15px;
     }
 
-    .nav-links.active {
-        display: flex; /* Tampilkan saat class 'active' ada */
-    }
-    
     .nav-links a {
         width: 100%;
         padding: 10px 0;
         border-bottom: 1px solid #eee;
     }
+    
     .contact-btn {
         width: 100%;
-    }
-    .contact-btn button {
-        width: 100%;
+        margin-top: 5px;
     }
 
+    .contact-btn button {
+        width: 100%; /* Tombol Hubungi Kami juga dibuat full-width */
+    }
+
+    body {
+        padding-top: 160px; /* Sesuaikan padding body karena header sekarang lebih tinggi */
+    }
+    
     /* Hero Section Mobile */
     .hero-section {
         flex-direction: column;
